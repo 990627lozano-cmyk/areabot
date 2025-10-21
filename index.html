@@ -44,15 +44,9 @@ button{
 button:hover{background:#003f8a;transform:scale(1.03);}
 .ghost{background:#e9f1ff;color:#0057b7;border:1px solid #aac8ff;}
 .panel{margin-top:20px;background:#f9fbff;padding:16px;border-radius:12px;min-height:120px;}
+input[type=number]{width:90px;padding:6px;border-radius:6px;border:1px solid #ccc;margin:4px;}
 .step{background:white;border-left:5px solid #0057b7;margin:10px 0;padding:10px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
 .note{font-size:.9em;color:#444;margin-top:15px;}
-img.ilustracion{
-  display:block;
-  margin:10px auto;
-  max-width:250px;
-  border-radius:12px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.2);
-}
 </style>
 </head>
 <body>
@@ -77,6 +71,7 @@ img.ilustracion{
 </div>
 
 <script>
+/* --- CONCEPTO --- */
 function mostrarConcepto(){
   document.getElementById("salida").innerHTML = `
   <h3>🧠 ¿Qué es el área bajo la curva?</h3>
@@ -88,77 +83,94 @@ function mostrarConcepto(){
 
   <div class="step">
   <b>📈 Ejemplo visual:</b><br>
-  Si el eje X representa el tiempo y el eje Y la velocidad, el área bajo la curva representa la distancia total recorrida.
-  <img src="grafica_area.png" alt="Área bajo la curva" class="ilustracion">
+  Si el eje X representa tiempo (horas) y el eje Y velocidad (km/h), 
+  el área bajo la curva indica la <b>distancia total recorrida</b>.
   </div>
 
   <div class="step">
   <b>🧩 En matemáticas:</b><br>
-  Se calcula con una integral: <br><br>
-  <center><b>Área = ∫ₐᵇ f(x) dx</b></center>
+  El área bajo la curva se calcula con la integral:<br><br>
+  <center><b>Área = ∫ₐᵇ f(x) dx</b></center><br>
+  Donde f(x) es la función, a y b los límites, y ∫ significa “sumar infinitas partes pequeñas”.
+  </div>
+
+  <div class="step">
+  <b>⚙️ Usos:</b><br>
+  • <b>Física:</b> distancias, energía, trabajo.<br>
+  • <b>Economía:</b> ingresos o costos acumulados.<br>
+  • <b>Biología:</b> crecimiento o concentración.<br>
+  • <b>Estadística:</b> probabilidades.
   </div>`;
 }
 
+/* --- EJEMPLO 1 --- */
 function mostrarEjemplo1(){
-  document.getElementById("salida").innerHTML = `
-  <h3>🧮 Ejemplo 1: f(x)=x²</h3>
-  <div class="step">
-  Calcula el área bajo la curva f(x)=x² entre x=0 y x=3.<br>
-  ∫₀³ x² dx = [x³/3]₀³ = 9.<br><br>
-  👉 El área bajo la curva es <b>9 unidades²</b>.
-  </div>`;
+  salida.innerHTML=`<h3>🧮 Ejemplo 1: f(x)=x²</h3>
+  <div class='step'>Parábola ascendente: el área mide el crecimiento acumulado entre a y b.</div>
+  <label>a:<input id="a1" type="number" value="1"></label>
+  <label>b:<input id="b1" type="number" value="3"></label>
+  <button onclick="resolverEjemplo1()">Calcular</button>
+  <div id="res1"></div>`;
+}
+function resolverEjemplo1(){
+  let a=+a1.value,b=+b1.value,Fa=a**3/3,Fb=b**3/3,area=Math.abs(Fb-Fa);
+  res1.innerHTML=`<div class='step'>∫_${a}^${b}x²dx=[x³/3]ₐᵇ=|${Fb.toFixed(3)}−${Fa.toFixed(3)}|=${area.toFixed(3)}</div>`;
 }
 
+/* --- EJEMPLO 2 --- */
 function mostrarEjemplo2(){
-  document.getElementById("salida").innerHTML = `
-  <h3>📊 Ejemplo 2: g(x)=6x−x²</h3>
-  <div class="step">
-  Calcula el área bajo la curva entre x=0 y x=6.<br>
-  ∫₀⁶ (6x−x²) dx = [3x²−x³/3]₀⁶ = 36.<br><br>
-  👉 El área bajo la curva es <b>36 unidades²</b>.
-  </div>`;
+  salida.innerHTML=`<h3>📊 Ejemplo 2: g(x)=6x−x²</h3>
+  <div class='step'>Parábola invertida: modela un ingreso marginal o velocidad decreciente.</div>
+  <label>a:<input id="a2" type="number" value="2"></label>
+  <label>b:<input id="b2" type="number" value="4"></label>
+  <button onclick="resolverEjemplo2()">Calcular</button>
+  <div id="res2"></div>`;
+}
+function resolverEjemplo2(){
+  let a=+a2.value,b=+b2.value,Ga=3*a**2-a**3/3,Gb=3*b**2-b**3/3,area=Math.abs(Gb-Ga);
+  res2.innerHTML=`<div class='step'>∫_${a}^${b}(6x−x²)dx=[3x²−x³/3]ₐᵇ=|${Gb.toFixed(3)}−${Ga.toFixed(3)}|=${area.toFixed(3)}</div>`;
 }
 
+/* --- APLICACIONES --- */
 function mostrarAplicacion1(){
-  document.getElementById("salida").innerHTML = `
-  <h3>🧩 Aplicación 1: Física</h3>
-  <div class="step">
-  En física, el área bajo una curva velocidad-tiempo representa la <b>distancia total recorrida</b>.
-  </div>`;
+  salida.innerHTML=`<h3>🧩 Aplicación 1 — Economía</h3>
+  <div class='step'>I'(x)=6x−x² es el ingreso marginal. 
+  El ingreso total entre 2 y 4 unidades es el área bajo la curva.</div>
+  <div class='step'>∫₂⁴(6x−x²)dx=[3x²−x³/3]₂⁴=52/3≈17.33 u.m.</div>
+  <div class='step'>Interpretación: el área representa el ingreso acumulado generado en ese rango.</div>`;
 }
-
 function mostrarAplicacion2(){
-  document.getElementById("salida").innerHTML = `
-  <h3>💡 Aplicación 2: Economía</h3>
-  <div class="step">
-  En economía, el área bajo una curva de ingreso marginal indica el <b>ingreso total</b>.
-  </div>`;
+  salida.innerHTML=`<h3>💡 Aplicación 2 — Física</h3>
+  <div class='step'>v(t)=4t−t² (m/s). El área bajo la curva es la distancia recorrida de t=0 a t=4.</div>
+  <div class='step'>∫₀⁴(4t−t²)dt=[2t²−t³/3]₀⁴=32/3≈10.67 m</div>
+  <div class='step'>Interpretación: el cuerpo avanza 10.67 m en ese intervalo.</div>`;
 }
-
 function mostrarAplicacion3(){
-  document.getElementById("salida").innerHTML = `
-  <h3>🌱 Aplicación 3: Biología</h3>
-  <div class="step">
-  En biología, se usa para medir la <b>cantidad total de una sustancia</b> o la <b>tasa de crecimiento acumulada</b>.
-  </div>`;
+  salida.innerHTML=`<h3>🌱 Aplicación 3 — Biología</h3>
+  <div class='step'>Una población crece según r(t)=0.5t² individuos/día. 
+  El área bajo la curva da el crecimiento total entre t=0 y t=6.</div>
+  <div class='step'>∫₀⁶0.5t²dt=0.5·[t³/3]₀⁶=0.5·72=36 individuos.</div>
+  <div class='step'>Interpretación: en 6 días la población aumenta 36 individuos.</div>`;
 }
-
 function mostrarAplicacion4(){
-  document.getElementById("salida").innerHTML = `
-  <h3>⚙️ Aplicación 4: Ingeniería</h3>
-  <div class="step">
-  En ingeniería, el área bajo la curva puede representar <b>trabajo mecánico</b> o <b>energía consumida</b>.
-  </div>`;
+  salida.innerHTML=`<h3>⚙️ Aplicación 4 — Ingeniería</h3>
+  <div class='step'>Una máquina consume potencia P(t)=10−t/2 (kW). 
+  El área bajo la curva entre t=0 y t=10 da la energía total consumida.</div>
+  <div class='step'>∫₀¹⁰(10−t/2)dt=[10t−t²/4]₀¹⁰=100−25=75 kWh.</div>
+  <div class='step'>Interpretación: la máquina consume 75 kWh en ese periodo.</div>`;
 }
 
+/* --- RESUMEN --- */
 function mostrarResumen(){
-  document.getElementById("salida").innerHTML = `
-  <h3>🔎 Resumen</h3>
-  <div class="step">
-  El cálculo integral permite hallar el área bajo una curva y se aplica en física, economía, biología e ingeniería.
-  </div>`;
+  salida.innerHTML=`<h3>🔎 Resumen general</h3>
+  <div class='step'><b>Ejemplo 1:</b> Área = 8.67 u²</div>
+  <div class='step'><b>Ejemplo 2:</b> Área = 17.33 u²</div>
+  <div class='step'><b>Aplicación 1:</b> Ingreso = 17.33 u.m.</div>
+  <div class='step'><b>Aplicación 2:</b> Distancia = 10.67 m</div>
+  <div class='step'><b>Aplicación 3:</b> Crecimiento = 36 individuos</div>
+  <div class='step'><b>Aplicación 4:</b> Energía = 75 kWh</div>`;
 }
 </script>
-
 </body>
 </html>
+
