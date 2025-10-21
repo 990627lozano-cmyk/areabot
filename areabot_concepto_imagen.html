@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>🤖 Área-Bot — Ejemplos y Aplicaciones</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+body{
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#0057b7,#4facfe,#00f2fe);
+  background-size:400% 400%;
+  animation:fondo 10s ease infinite;
+  margin:0;color:#222;
+  display:flex;justify-content:center;
+  align-items:flex-start;
+  min-height:100vh;padding:40px 10px;
+}
+@keyframes fondo{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.card{
+  background:white;border-radius:20px;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);
+  width:100%;max-width:950px;
+  padding:30px;position:relative;
+}
+h1{color:#0057b7;margin-top:0;}
+.bot{
+  position:absolute;top:-20px;right:-20px;width:150px;
+  animation:flotar 3s ease-in-out infinite;opacity:.9;
+}
+@keyframes flotar{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+button{
+  background:#0057b7;color:#fff;border:none;
+  padding:10px 16px;border-radius:10px;
+  margin:6px;cursor:pointer;font-size:15px;
+  transition:.2s;
+}
+button:hover{background:#003f8a;transform:scale(1.03);}
+.ghost{background:#e9f1ff;color:#0057b7;border:1px solid #aac8ff;}
+.panel{margin-top:20px;background:#f9fbff;padding:16px;border-radius:12px;min-height:120px;}
+input[type=number]{width:90px;padding:6px;border-radius:6px;border:1px solid #ccc;margin:4px;}
+.step{background:white;border-left:5px solid #0057b7;margin:10px 0;padding:10px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
+.note{font-size:.9em;color:#444;margin-top:15px;}
+img.ilustracion{
+  display:block;
+  margin:10px auto;
+  max-width:250px;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="bot" src="https://cdn-icons-png.flaticon.com/512/4712/4712105.png" alt="Robot tutor">
+  <h1>🤖 ¡Bienvenido a Área-Bot!</h1>
+  <p>Explora ejemplos y <b>4 aplicaciones reales</b> del cálculo integral 🎓</p>
+
+  <div>
+    <button onclick="mostrarConcepto()">📘 Concepto</button>
+    <button onclick="mostrarEjemplo1()">🧮 Ejemplo 1: f(x)=x²</button>
+    <button onclick="mostrarEjemplo2()">📊 Ejemplo 2: g(x)=6x−x²</button>
+    <button onclick="mostrarAplicacion1()">🧩 Aplicación 1</button>
+    <button onclick="mostrarAplicacion2()">💡 Aplicación 2</button>
+    <button onclick="mostrarAplicacion3()">🌱 Aplicación 3</button>
+    <button onclick="mostrarAplicacion4()">⚙️ Aplicación 4</button>
+    <button class="ghost" onclick="mostrarResumen()">🔎 Resumen</button>
+  </div>
+
+  <div id="salida" class="panel"><em>Selecciona una opción para comenzar.</em></div>
+  <p class="note">💡 Consejo: cambia los límites o revisa las aplicaciones para reforzar tu aprendizaje.</p>
+</div>
+
+<script>
+function mostrarConcepto(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🧠 ¿Qué es el área bajo la curva?</h3>
+  <div class="step">
+  El área bajo la curva es una forma de medir cuánto espacio hay entre una línea (llamada “curva”) 
+  y el eje horizontal (eje X), dentro de un cierto intervalo.<br><br>
+  En otras palabras, representa el valor total acumulado que hay debajo de esa curva en un gráfico.
+  </div>
+
+  <div class="step">
+  <b>📈 Ejemplo visual (imagínalo así):</b><br>
+  Supón que tienes una gráfica donde el eje X muestra el tiempo (en horas) y el eje Y muestra la velocidad de un auto (en km/h).<br><br>
+  Si dibujas la curva de velocidad a lo largo del tiempo, el área bajo esa curva te dice cuántos kilómetros recorrió el auto en ese tiempo.<br><br>
+  👉 En este caso, el área bajo la curva representa la <b>distancia total recorrida</b>.
+  <img src="grafica_area.png" alt="Área bajo la curva" class="ilustracion">
+  </div>
+
+  <div class="step">
+  <b>🧩 En matemáticas</b><br>
+  Cuando se estudia en matemáticas, el área bajo la curva se calcula usando una herramienta llamada <b>integral</b>.<br><br>
+  Por eso se dice que:<br><br>
+  <center><b>Área bajo la curva = ∫ₐᵇ f(x) dx</b></center><br>
+  Donde:<br>
+  • f(x) → es la función (la curva).<br>
+  • a y b → son los límites (desde dónde hasta dónde se mide el área).<br>
+  • El símbolo ∫ → significa “sumar infinitas partes muy pequeñas”.
+  </div>
+
+  <div class="step">
+  <b>⚙️ ¿Por qué se usa?</b><br>
+  El área bajo la curva se usa en muchas disciplinas:<br><br>
+  • <b>Física:</b> hallar distancias, energías o trabajo.<br>
+  • <b>Estadística:</b> calcular probabilidades (por ejemplo, en la curva normal).<br>
+  • <b>Economía:</b> encontrar ingresos totales o costos acumulados.<br>
+  • <b>Biología o Química:</b> medir concentraciones o reacciones a lo largo del tiempo.
+  </div>
+
+  <div class="step">
+  <b>🧩 En palabras simples:</b><br>
+  El área bajo la curva es la cantidad total acumulada que representa una gráfica entre dos puntos.<br><br>
+  Es como sumar todos los pequeños rectángulos que están bajo una línea en una gráfica 
+  para saber cuánta “cantidad” hay en total.
+  </div>`;
+}
+</script>
+</body>
+</html>
