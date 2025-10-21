@@ -44,7 +44,6 @@ button{
 button:hover{background:#003f8a;transform:scale(1.03);}
 .ghost{background:#e9f1ff;color:#0057b7;border:1px solid #aac8ff;}
 .panel{margin-top:20px;background:#f9fbff;padding:16px;border-radius:12px;min-height:120px;}
-input[type=number]{width:90px;padding:6px;border-radius:6px;border:1px solid #ccc;margin:4px;}
 .step{background:white;border-left:5px solid #0057b7;margin:10px 0;padding:10px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.05);}
 .note{font-size:.9em;color:#444;margin-top:15px;}
 img.ilustracion{
@@ -78,17 +77,25 @@ img.ilustracion{
 </div>
 
 <script>
-  <script>
 function mostrarConcepto(){
   document.getElementById("salida").innerHTML = `
   <h3>🧠 ¿Qué es el área bajo la curva?</h3>
   <div class="step">
   El área bajo la curva es una forma de medir cuánto espacio hay entre una línea (llamada “curva”) 
-  y el eje horizontal (eje X), dentro de un cierto intervalo.
+  y el eje horizontal (eje X), dentro de un cierto intervalo.<br><br>
+  En otras palabras, representa el valor total acumulado que hay debajo de esa curva en un gráfico.
   </div>
+
   <div class="step">
-  📈 Si el eje X representa el tiempo y el eje Y la velocidad, el área bajo la curva representa la distancia total recorrida.
+  <b>📈 Ejemplo visual:</b><br>
+  Si el eje X representa el tiempo y el eje Y la velocidad, el área bajo la curva representa la distancia total recorrida.
   <img src="grafica_area.png" alt="Área bajo la curva" class="ilustracion">
+  </div>
+
+  <div class="step">
+  <b>🧩 En matemáticas:</b><br>
+  Se calcula con una integral: <br><br>
+  <center><b>Área = ∫ₐᵇ f(x) dx</b></center>
   </div>`;
 }
 
@@ -152,51 +159,6 @@ function mostrarResumen(){
   </div>`;
 }
 </script>
-function mostrarConcepto(){
-  document.getElementById("salida").innerHTML = `
-  <h3>🧠 ¿Qué es el área bajo la curva?</h3>
-  <div class="step">
-  El área bajo la curva es una forma de medir cuánto espacio hay entre una línea (llamada “curva”) 
-  y el eje horizontal (eje X), dentro de un cierto intervalo.<br><br>
-  En otras palabras, representa el valor total acumulado que hay debajo de esa curva en un gráfico.
-  </div>
 
-  <div class="step">
-  <b>📈 Ejemplo visual (imagínalo así):</b><br>
-  Supón que tienes una gráfica donde el eje X muestra el tiempo (en horas) y el eje Y muestra la velocidad de un auto (en km/h).<br><br>
-  Si dibujas la curva de velocidad a lo largo del tiempo, el área bajo esa curva te dice cuántos kilómetros recorrió el auto en ese tiempo.<br><br>
-  👉 En este caso, el área bajo la curva representa la <b>distancia total recorrida</b>.
-  <img src="grafica_area.png" alt="Área bajo la curva" class="ilustracion">
-  </div>
-
-  <div class="step">
-  <b>🧩 En matemáticas</b><br>
-  Cuando se estudia en matemáticas, el área bajo la curva se calcula usando una herramienta llamada <b>integral</b>.<br><br>
-  Por eso se dice que:<br><br>
-  <center><b>Área bajo la curva = ∫ₐᵇ f(x) dx</b></center><br>
-  Donde:<br>
-  • f(x) → es la función (la curva).<br>
-  • a y b → son los límites (desde dónde hasta dónde se mide el área).<br>
-  • El símbolo ∫ → significa “sumar infinitas partes muy pequeñas”.
-  </div>
-
-  <div class="step">
-  <b>⚙️ ¿Por qué se usa?</b><br>
-  El área bajo la curva se usa en muchas disciplinas:<br><br>
-  • <b>Física:</b> hallar distancias, energías o trabajo.<br>
-  • <b>Estadística:</b> calcular probabilidades (por ejemplo, en la curva normal).<br>
-  • <b>Economía:</b> encontrar ingresos totales o costos acumulados.<br>
-  • <b>Biología o Química:</b> medir concentraciones o reacciones a lo largo del tiempo.
-  </div>
-
-  <div class="step">
-  <b>🧩 En palabras simples:</b><br>
-  El área bajo la curva es la cantidad total acumulada que representa una gráfica entre dos puntos.<br><br>
-  Es como sumar todos los pequeños rectángulos que están bajo una línea en una gráfica 
-  para saber cuánta “cantidad” hay en total.
-  </div>`;
-}
-</script>
 </body>
 </html>
-
