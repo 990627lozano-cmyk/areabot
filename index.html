@@ -78,6 +78,80 @@ img.ilustracion{
 </div>
 
 <script>
+  <script>
+function mostrarConcepto(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🧠 ¿Qué es el área bajo la curva?</h3>
+  <div class="step">
+  El área bajo la curva es una forma de medir cuánto espacio hay entre una línea (llamada “curva”) 
+  y el eje horizontal (eje X), dentro de un cierto intervalo.
+  </div>
+  <div class="step">
+  📈 Si el eje X representa el tiempo y el eje Y la velocidad, el área bajo la curva representa la distancia total recorrida.
+  <img src="grafica_area.png" alt="Área bajo la curva" class="ilustracion">
+  </div>`;
+}
+
+function mostrarEjemplo1(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🧮 Ejemplo 1: f(x)=x²</h3>
+  <div class="step">
+  Calcula el área bajo la curva f(x)=x² entre x=0 y x=3.<br>
+  ∫₀³ x² dx = [x³/3]₀³ = 9.<br><br>
+  👉 El área bajo la curva es <b>9 unidades²</b>.
+  </div>`;
+}
+
+function mostrarEjemplo2(){
+  document.getElementById("salida").innerHTML = `
+  <h3>📊 Ejemplo 2: g(x)=6x−x²</h3>
+  <div class="step">
+  Calcula el área bajo la curva entre x=0 y x=6.<br>
+  ∫₀⁶ (6x−x²) dx = [3x²−x³/3]₀⁶ = 36.<br><br>
+  👉 El área bajo la curva es <b>36 unidades²</b>.
+  </div>`;
+}
+
+function mostrarAplicacion1(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🧩 Aplicación 1: Física</h3>
+  <div class="step">
+  En física, el área bajo una curva velocidad-tiempo representa la <b>distancia total recorrida</b>.
+  </div>`;
+}
+
+function mostrarAplicacion2(){
+  document.getElementById("salida").innerHTML = `
+  <h3>💡 Aplicación 2: Economía</h3>
+  <div class="step">
+  En economía, el área bajo una curva de ingreso marginal indica el <b>ingreso total</b>.
+  </div>`;
+}
+
+function mostrarAplicacion3(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🌱 Aplicación 3: Biología</h3>
+  <div class="step">
+  En biología, se usa para medir la <b>cantidad total de una sustancia</b> o la <b>tasa de crecimiento acumulada</b>.
+  </div>`;
+}
+
+function mostrarAplicacion4(){
+  document.getElementById("salida").innerHTML = `
+  <h3>⚙️ Aplicación 4: Ingeniería</h3>
+  <div class="step">
+  En ingeniería, el área bajo la curva puede representar <b>trabajo mecánico</b> o <b>energía consumida</b>.
+  </div>`;
+}
+
+function mostrarResumen(){
+  document.getElementById("salida").innerHTML = `
+  <h3>🔎 Resumen</h3>
+  <div class="step">
+  El cálculo integral permite hallar el área bajo una curva y se aplica en física, economía, biología e ingeniería.
+  </div>`;
+}
+</script>
 function mostrarConcepto(){
   document.getElementById("salida").innerHTML = `
   <h3>🧠 ¿Qué es el área bajo la curva?</h3>
@@ -125,3 +199,4 @@ function mostrarConcepto(){
 </script>
 </body>
 </html>
+
